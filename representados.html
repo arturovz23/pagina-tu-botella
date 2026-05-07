@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Tu Botella – Buscamos marcas internacionales de empaque para representar en México. Contáctanos y conversemos." />
+  <title>Tu Botella | Buscamos Representados en México</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body class="rep-page">
+
+  <!-- ============================================================
+       NAVBAR
+  ============================================================ -->
+  <header class="navbar navbar--solid" id="navbar">
+    <div class="container navbar__inner">
+      <a href="index.html" class="navbar__logo">
+        <span class="logo-text logo-text--dark">Tu<span class="logo-accent">Botella</span></span>
+      </a>
+      <nav class="navbar__menu" id="navMenu">
+        <ul>
+          <li><a href="index.html#nosotros">Nosotros</a></li>
+          <li><a href="index.html#productos">Productos</a></li>
+          <li><a href="index.html#equipo">Equipo</a></li>
+          <li><a href="index.html#clientes">Clientes</a></li>
+          <li><a href="index.html#contacto" class="btn btn--nav">Solicitar cotización</a></li>
+        </ul>
+      </nav>
+      <button class="navbar__toggle" id="navToggle" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       HERO — Representados
+  ============================================================ -->
+  <section class="rep-hero">
+    <div class="rep-hero__bg">
+      <img
+        src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1600&q=80"
+        alt="Alianzas comerciales"
+        class="rep-hero__img"
+      />
+      <div class="rep-hero__overlay"></div>
+    </div>
+    <div class="container rep-hero__content">
+      <a href="index.html" class="rep-hero__back">
+        <i class="fa-solid fa-arrow-left"></i> Volver al inicio
+      </a>
+      <p class="hero__tag"><i class="fa-solid fa-handshake"></i> Oportunidad de Negocio</p>
+      <h1 class="hero__title">
+        ¿Tu marca quiere entrar<br />
+        <span class="hero__title--accent">al mercado mexicano?</span>
+      </h1>
+      <p class="hero__subtitle">
+        Somos tu canal de ventas en México. Red comercial consolidada,
+        cobertura nacional y más de 12 años de experiencia en el mercado de empaque.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       BENEFICIOS + FORMULARIO
+  ============================================================ -->
+  <section class="section rep-body">
+    <div class="container rep-body__inner">
+
+      <!-- Columna izquierda: info -->
+      <div class="rep-body__info">
+        <p class="section__tag">Lo que ofrecemos</p>
+        <h2 class="section__title">Somos tu puerta de entrada<br />a México</h2>
+        <p class="nosotros__text">
+          En <strong>Tu Botella</strong> tenemos el canal de ventas que tu marca necesita para
+          crecer en México y LATAM. Sin necesidad de abrir oficinas ni contratar personal local —
+          nosotros lo hacemos por ti.
+        </p>
+
+        <div class="nosotros__features">
+          <div class="feature">
+            <i class="fa-solid fa-network-wired"></i>
+            <div>
+              <h4>Red comercial establecida</h4>
+              <p>Cartera activa de más de 300 clientes en toda la república mexicana.</p>
+            </div>
+          </div>
+          <div class="feature">
+            <i class="fa-solid fa-chart-line"></i>
+            <div>
+              <h4>Canal de ventas probado</h4>
+              <p>Más de 12 años y 16 millones de piezas vendidas avalan nuestro desempeño.</p>
+            </div>
+          </div>
+          <div class="feature">
+            <i class="fa-solid fa-map-location-dot"></i>
+            <div>
+              <h4>Cobertura nacional</h4>
+              <p>Distribución y ventas en todo México, desde la frontera norte hasta el sureste.</p>
+            </div>
+          </div>
+          <div class="feature">
+            <i class="fa-solid fa-handshake-simple"></i>
+            <div>
+              <h4>Alianza estratégica de largo plazo</h4>
+              <p>Construimos relaciones duraderas basadas en resultados y confianza mutua.</p>
+            </div>
+          </div>
+          <div class="feature">
+            <i class="fa-solid fa-shield-halved"></i>
+            <div>
+              <h4>Manejo profesional de tu marca</h4>
+              <p>Gestionamos tu imagen, precios y posicionamiento con el cuidado que merece.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="rep-body__whatsapp">
+          <p>¿Prefieres hablar directamente?</p>
+          <a href="https://wa.me/5215512345678?text=Hola%2C%20me%20interesa%20explorar%20una%20representaci%C3%B3n%20en%20M%C3%A9xico."
+             target="_blank" class="btn btn--whatsapp">
+            <i class="fa-brands fa-whatsapp"></i> Escríbenos por WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <!-- Columna derecha: formulario -->
+      <div class="rep-body__form">
+        <div class="form-card">
+          <h3 class="form-card__title">Contáctanos para representarte</h3>
+          <p class="form-card__subtitle">Cuéntanos sobre tu empresa y te respondemos a la brevedad.</p>
+          <form class="rep-form" id="repForm">
+            <div class="form-group">
+              <label for="rep-empresa">Nombre de la empresa *</label>
+              <input type="text" id="rep-empresa" name="empresa" placeholder="Ej. Packaging Co. GmbH" required />
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="rep-nombre">Nombre del contacto *</label>
+                <input type="text" id="rep-nombre" name="nombre" placeholder="Tu nombre" required />
+              </div>
+              <div class="form-group">
+                <label for="rep-pais">País de origen *</label>
+                <input type="text" id="rep-pais" name="pais" placeholder="Ej. Alemania" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="rep-email">Correo electrónico *</label>
+              <input type="email" id="rep-email" name="email" placeholder="contacto@empresa.com" required />
+            </div>
+            <div class="form-group">
+              <label for="rep-telefono">Teléfono / WhatsApp</label>
+              <input type="tel" id="rep-telefono" name="telefono" placeholder="+49 000 000 000" />
+            </div>
+            <div class="form-group">
+              <label for="rep-productos">¿Qué productos o categorías manejan? *</label>
+              <textarea id="rep-productos" name="productos" rows="4" placeholder="Describe brevemente tus productos, en qué mercados ya operan y qué volúmenes manejan..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn--primary btn--full">
+              <i class="fa-solid fa-paper-plane"></i> Enviar solicitud
+            </button>
+            <p class="form-card__privacy">
+              <i class="fa-solid fa-lock"></i> Tu información es confidencial y solo se usará para contactarte.
+            </p>
+          </form>
+          <div class="form-success" id="repSuccess" style="display:none;">
+            <i class="fa-solid fa-circle-check"></i>
+            <h4>¡Solicitud enviada!</h4>
+            <p>Gracias por contactarnos. Te responderemos en menos de 24 horas.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <span class="logo-text logo-text--light">Tu<span class="logo-accent">Botella</span></span>
+        <p>Tapas metálicas twist off y rosca para alimentos. Stock en México y entrega rápida a toda la república.</p>
+      </div>
+      <div class="footer__links">
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="index.html#nosotros">Nosotros</a></li>
+          <li><a href="index.html#productos">Productos</a></li>
+          <li><a href="index.html#equipo">Equipo</a></li>
+          <li><a href="index.html#clientes">Clientes</a></li>
+          <li><a href="index.html#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer__links">
+        <h4>Productos</h4>
+        <ul>
+          <li><a href="index.html#productos">Tapas Twist Off</a></li>
+          <li><a href="index.html#productos">Tapas de Rosca</a></li>
+          <li><a href="index.html#productos">Tapas de Aluminio</a></li>
+          <li><a href="index.html#productos">Línea Premium</a></li>
+        </ul>
+      </div>
+      <div class="footer__contact">
+        <h4>Contacto rápido</h4>
+        <a href="https://wa.me/5215512345678" target="_blank" class="footer__contact-item">
+          <i class="fa-brands fa-whatsapp"></i> +52 55 1234 5678
+        </a>
+        <a href="mailto:contacto@tubotella.mx" class="footer__contact-item">
+          <i class="fa-solid fa-envelope"></i> contacto@tubotella.mx
+        </a>
+        <a href="https://tubotella.mx" class="footer__contact-item">
+          <i class="fa-solid fa-globe"></i> tubotella.mx
+        </a>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="container">
+        <p>© 2025 Tu Botella. Todos los derechos reservados.</p>
+        <p>Hecho con <i class="fa-solid fa-heart"></i> en México</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Floating Button -->
+  <a
+    href="https://wa.me/5215512345678?text=Hola%2C%20me%20interesa%20ser%20representado%20en%20M%C3%A9xico."
+    target="_blank"
+    class="whatsapp-fab"
+    aria-label="WhatsApp"
+  >
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
