@@ -203,6 +203,75 @@ if (contactoForm) {
   });
 }
 
+// ── Carrusel de Productos ────────────────────────────────────
+(function () {
+  const track   = document.getElementById('carouselTrack');
+  const dotsEl  = document.getElementById('carouselDots');
+  const btnPrev = document.getElementById('carouselPrev');
+  const btnNext = document.getElementById('carouselNext');
+  if (!track) return;
+
+  const cards = Array.from(track.children);
+  let current = 0;
+
+  function visibleCount() {
+    const w = window.innerWidth;
+    if (w < 600)  return 1;
+    if (w < 960)  return 2;
+    return 3;
+  }
+
+  function maxIndex() {
+    return Math.max(0, cards.length - visibleCount());
+  }
+
+  // Crear dots
+  function buildDots() {
+    dotsEl.innerHTML = '';
+    const count = maxIndex() + 1;
+    for (let i = 0; i < count; i++) {
+      const d = document.createElement('button');
+      d.className = 'carousel__dot' + (i === current ? ' active' : '');
+      d.setAttribute('aria-label', `Ir a ${i + 1}`);
+      d.addEventListener('click', () => goTo(i));
+      dotsEl.appendChild(d);
+    }
+  }
+
+  function goTo(index) {
+    current = Math.max(0, Math.min(index, maxIndex()));
+    const cardWidth = cards[0].getBoundingClientRect().width;
+    const gap = 24;
+    track.style.transform = `translateX(-${current * (cardWidth + gap)}px)`;
+    // Actualizar dots
+    dotsEl.querySelectorAll('.carousel__dot').forEach((d, i) => {
+      d.classList.toggle('active', i === current);
+    });
+    btnPrev.disabled = current === 0;
+    btnNext.disabled = current >= maxIndex();
+  }
+
+  btnPrev.addEventListener('click', () => goTo(current - 1));
+  btnNext.addEventListener('click', () => goTo(current + 1));
+
+  // Reconstruir al cambiar tamaño
+  window.addEventListener('resize', () => {
+    buildDots();
+    goTo(Math.min(current, maxIndex()));
+  });
+
+  // Touch/swipe
+  let touchStartX = 0;
+  track.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+  track.addEventListener('touchend', e => {
+    const diff = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) goTo(diff > 0 ? current + 1 : current - 1);
+  });
+
+  buildDots();
+  goTo(0);
+})();
+
 // ── Smooth scroll polyfill for older Safari ──────────────────
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
