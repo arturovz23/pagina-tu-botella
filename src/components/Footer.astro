@@ -4,7 +4,9 @@ const b = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL.slic
 <footer class="footer">
   <div class="container footer__inner">
     <div class="footer__brand">
-      <span class="logo-text logo-text--light">Tu<span class="logo-accent">Botella</span></span>
+      <a href={`${b}#inicio`} class="footer__logo-link">
+        <img src={`${b}/img/tubotella logo nuevo.png`} alt="Tu Botella" class="footer__logo-img" />
+      </a>
       <p>Tapas metálicas twist off y rosca para alimentos. Stock en México y entrega rápida a toda la república.</p>
     </div>
     <div class="footer__links">
