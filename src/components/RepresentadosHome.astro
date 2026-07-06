@@ -1,5 +1,5 @@
 ---
-const b = import.meta.env.BASE_URL;
+const b = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL.slice(0, -1) : import.meta.env.BASE_URL;
 ---
 <section class="section representados" id="representados">
   <div class="representados__bg">
@@ -36,7 +36,7 @@ const b = import.meta.env.BASE_URL;
         </div>
       </div>
       <div class="representados__cta-center">
-        <a href={`${b}representados`} class="btn btn--gold">
+        <a href={`${b}/representados`} class="btn btn--gold">
           <i class="fa-solid fa-handshake"></i> Quiero ser representado en México
         </a>
       </div>

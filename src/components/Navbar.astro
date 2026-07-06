@@ -1,17 +1,17 @@
 ---
-const b = import.meta.env.BASE_URL;
+const b = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL.slice(0, -1) : import.meta.env.BASE_URL;
 ---
 <header class="navbar" id="navbar">
   <div class="container navbar__inner">
     <a href={`${b}#inicio`} class="navbar__logo">
-      <img src={`${b}img/tubotella logo nuevo.png`} alt="Tu Botella" class="navbar__logo-img" />
+      <img src={`${b}/img/tubotella logo nuevo.png`} alt="Tu Botella" class="navbar__logo-img" />
     </a>
     <nav class="navbar__menu" id="navMenu">
       <ul>
         <li><a href={`${b}#nosotros`}>Nosotros</a></li>
         <li><a href={`${b}#productos`}>Productos</a></li>
         <li><a href={`${b}#equipo`}>Equipo</a></li>
-        <li><a href={`${b}representados`}>Representados</a></li>
+        <li><a href={`${b}/representados`}>Representados</a></li>
         <li><a href={`${b}#clientes`}>Clientes</a></li>
         <li><a href={`${b}#faq`}>FAQ</a></li>
         <li><a href={`${b}#contacto`} class="btn btn--nav">Cotizar ahora</a></li>

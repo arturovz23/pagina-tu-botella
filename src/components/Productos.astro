@@ -1,5 +1,5 @@
 ---
-const b = import.meta.env.BASE_URL;
+const b = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL.slice(0, -1) : import.meta.env.BASE_URL;
 
 const productos = [
   { img: 'TAPA TWIST OFF.png',           alt: 'Tapa Twist Off',            nombre: 'Twist Off',                  desc: 'Tapa de hojalata para cierre hermético al vacío. Compatible con pasteurización y esterilización. Múltiples diámetros con botón de seguridad.' },
@@ -30,7 +30,7 @@ const productos = [
           {productos.map(p => (
             <div class="producto-card">
               <div class="producto-card__img-wrap">
-                <img src={`${b}img/${p.img}`} alt={p.alt} />
+                <img src={`${b}/img/${p.img}`} alt={p.alt} />
               </div>
               <div class="producto-card__body">
                 <h3>{p.nombre}</h3>

@@ -1,5 +1,5 @@
 ---
-const b = import.meta.env.BASE_URL;
+const b = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL.slice(0, -1) : import.meta.env.BASE_URL;
 
 const equipo = [
   { foto: 'robertha tu botella.jpeg', nombre: 'Roberta França Pacheco',    rol: 'Director General',   quote: '"La tapa correcta marca la diferencia en calidad y presentación."' },
@@ -19,7 +19,7 @@ const equipo = [
     <div class="equipo__grid">
       {equipo.map(p => (
         <div class="equipo-card">
-          <img src={`${b}img/${p.foto}`} alt={`Foto ${p.nombre}`} class="equipo-card__photo" />
+          <img src={`${b}/img/${p.foto}`} alt={`Foto ${p.nombre}`} class="equipo-card__photo" />
           <h3 class="equipo-card__name">{p.nombre}</h3>
           <span class="equipo-card__role">{p.rol}</span>
           <p class="equipo-card__quote">{p.quote}</p>

@@ -1,10 +1,10 @@
 ---
-const b = import.meta.env.BASE_URL;
+const b = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL.slice(0, -1) : import.meta.env.BASE_URL;
 ---
 <section class="section nosotros" id="nosotros">
   <div class="container nosotros__inner">
     <div class="nosotros__img-wrap">
-      <img src={`${b}img/tapas.jpg`} alt="Equipo Tu Botella" class="nosotros__img" />
+      <img src={`${b}/img/tapas.jpg`} alt="Equipo Tu Botella" class="nosotros__img" />
       <div class="nosotros__badge">
         <i class="fa-solid fa-award"></i>
         <span>Calidad garantizada</span>
