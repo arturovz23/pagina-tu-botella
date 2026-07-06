@@ -1,0 +1,22 @@
+---
+const b = import.meta.env.BASE_URL;
+---
+<section class="section marcas" id="marcas">
+  <div class="container">
+    <p class="section__tag text-center">Nuestro portafolio</p>
+    <h2 class="section__title text-center">Marcas que comercializamos</h2>
+    <p class="section__subtitle text-center">
+      Representamos fabricantes líderes del mercado internacional de empaque metálico.
+    </p>
+    <div class="marcas__grid">
+      <div class="marca-card">
+        <div class="marca-card__logo">
+          <img src={`${b}img/logo tecnocap.png`} alt="Tecnocap" style="width:70px;height:70px;object-fit:contain;border-radius:50%;" />
+        </div>
+        <h3>Tecnocap</h3>
+        <p>Especialistas en tapas metálicas y de aluminio para la industria alimentaria y de bebidas. Presencia en más de 70 países.</p>
+        <a href="#contacto" class="btn btn--ghost">Más información</a>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,74 @@
+---
+const preguntas = [
+  {
+    pregunta: '¿Cuál es el mínimo de compra?',
+    respuesta: 'Podemos vender desde una sola caja. Sin embargo, para activar el beneficio de <strong>flete gratis</strong>, la compra mínima es de <strong>$2,500 USD</strong> antes de IVA.',
+  },
+  {
+    pregunta: '¿Ofrecen muestras para pruebas de calidad y cerrado?',
+    respuesta: 'Sí. Enviamos muestras físicas para que puedas realizar las pruebas técnicas de compatibilidad y cerrado necesarias <strong>antes de confirmar tu pedido</strong>. Contáctanos para coordinar el envío.',
+  },
+  {
+    pregunta: '¿Se pueden personalizar las tapas con mi logotipo?',
+    respuesta: 'Sí. Ofrecemos personalización con litografía bajo nuestras políticas y lineamientos técnicos. Contáctanos para recibir nuestro <strong>PDF institucional</strong> con todas las especificaciones y requerimientos de arte.',
+  },
+  {
+    pregunta: '¿Cuáles son los tiempos promedio de entrega?',
+    respuesta: null,
+    lista: [
+      { label: 'En almacén México:', valor: '3 a 4 días hábiles.' },
+      { label: 'En almacén Estados Unidos:', valor: '3 a 4 semanas.' },
+      { label: 'Fabricación desde cero:', valor: '6 a 8 semanas.' },
+    ],
+  },
+];
+---
+<section class="section faq" id="faq">
+  <div class="container">
+    <p class="section__tag text-center">Resolvemos tus dudas</p>
+    <h2 class="section__title text-center">Preguntas frecuentes</h2>
+    <p class="section__subtitle text-center">Todo lo que necesitas saber antes de hacer tu pedido.</p>
+
+    <div class="faq__list">
+      {preguntas.map(p => (
+        <div class="faq__item">
+          <button class="faq__question" aria-expanded="false">
+            <span>{p.pregunta}</span>
+            <i class="fa-solid fa-plus faq__icon"></i>
+          </button>
+          <div class="faq__answer">
+            {p.respuesta
+              ? <p set:html={p.respuesta} />
+              : (
+                <>
+                  <p>Los tiempos varían según la disponibilidad del producto:</p>
+                  <ul class="faq__answer-list">
+                    {p.lista?.map(item => (
+                      <li><strong>{item.label}</strong> {item.valor}</li>
+                    ))}
+                  </ul>
+                </>
+              )
+            }
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll('.faq__question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const isOpen = btn.getAttribute('aria-expanded') === 'true';
+      document.querySelectorAll('.faq__question').forEach(b => {
+        b.setAttribute('aria-expanded', 'false');
+        (b.nextElementSibling as HTMLElement)?.classList.remove('open');
+      });
+      if (!isOpen) {
+        btn.setAttribute('aria-expanded', 'true');
+        (btn.nextElementSibling as HTMLElement)?.classList.add('open');
+      }
+    });
+  });
+</script>

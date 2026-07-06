@@ -1,0 +1,28 @@
+---
+const aplicaciones = [
+  { icon: 'fa-jar',         nombre: 'Miel',               desc: 'Sellado hermético que preserva aroma y calidad.' },
+  { icon: 'fa-pepper-hot',  nombre: 'Salsas',             desc: 'Para salsas picantes, moles y condimentos.' },
+  { icon: 'fa-seedling',    nombre: 'Conservas',          desc: 'Verduras, frutas y alimentos procesados al vacío.' },
+  { icon: 'fa-droplet',     nombre: 'Aceites',            desc: 'Aceite de oliva, aguacate y aceites gourmet.' },
+  { icon: 'fa-cookie-bite', nombre: 'Mermeladas',         desc: 'Mermeladas artesanales e industriales.' },
+  { icon: 'fa-star',        nombre: 'Productos Gourmet',  desc: 'Líneas premium con presentación diferenciada.' },
+];
+---
+<section class="section aplicaciones" id="aplicaciones">
+  <div class="container">
+    <p class="section__tag text-center">Usos frecuentes</p>
+    <h2 class="section__title text-center">¿Para qué productos son ideales?</h2>
+    <p class="section__subtitle text-center">
+      Nuestras tapas son la solución perfecta para una amplia variedad de alimentos y bebidas.
+    </p>
+    <div class="aplicaciones__grid">
+      {aplicaciones.map(a => (
+        <div class="aplicacion-item">
+          <i class={`fa-solid ${a.icon}`}></i>
+          <span>{a.nombre}</span>
+          <p>{a.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

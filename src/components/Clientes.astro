@@ -1,0 +1,58 @@
+---
+const testimonios = [
+  {
+    iniciales: 'MR',
+    empresa: 'Monterrey Foods',
+    sector: 'Industria alimentaria',
+    texto: '"La experiencia que tenemos con Tu Botella ha sido muy buena. Nos ayudaron a encontrar el empaque perfecto para nuestra línea gourmet. El trato es excelente y los precios muy competitivos."',
+  },
+  {
+    iniciales: 'SG',
+    empresa: 'Salsas Gourmet SA',
+    sector: 'Productora de alimentos',
+    texto: '"Llevamos 3 años trabajando con Tu Botella y han sido un partner confiable. Siempre cumplen con los tiempos de entrega y la calidad del producto es constante."',
+  },
+  {
+    iniciales: 'NB',
+    empresa: 'Naturalia Bio',
+    sector: 'Alimentos orgánicos',
+    texto: '"Excelente servicio y asesoría. Nos orientaron para elegir el tipo de tapa correcto para nuestros productos orgánicos. El sello hermético es perfecto para nuestra línea."',
+  },
+];
+---
+<section class="section clientes" id="clientes">
+  <div class="container">
+    <p class="section__tag text-center">Lo que dicen</p>
+    <h2 class="section__title text-center">Nuestros clientes</h2>
+    <div class="testimonios__grid">
+      {testimonios.map(t => (
+        <div class="testimonio-card">
+          <div class="testimonio-card__stars">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <p>{t.texto}</p>
+          <div class="testimonio-card__author">
+            <div class="author-avatar">{t.iniciales}</div>
+            <div>
+              <strong>{t.empresa}</strong>
+              <span>{t.sector}</span>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+    <div class="clientes__logos">
+      <p class="clientes__logos-label">Confían en nosotros</p>
+      <div class="logos-strip">
+        <span>Monterrey Foods</span>
+        <span>Salsas Gourmet</span>
+        <span>Naturalia Bio</span>
+        <span>Miel del Campo</span>
+        <span>Conservas Artesanales</span>
+        <span>Grupo Empaque MX</span>
+      </div>
+    </div>
+  </div>
+</section>

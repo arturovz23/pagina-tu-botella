@@ -1,0 +1,45 @@
+---
+const b = import.meta.env.BASE_URL;
+---
+<section class="section representados" id="representados">
+  <div class="representados__bg">
+    <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1600&q=80" alt="Alianzas comerciales" class="representados__bg-img" />
+    <div class="representados__overlay"></div>
+  </div>
+  <div class="container representados__inner representados__inner--single">
+    <div class="representados__content representados__content--centered">
+      <p class="section__tag section__tag--light text-center">Oportunidad de negocio</p>
+      <h2 class="section__title section__title--light text-center">
+        ¿Tu empresa busca entrar<br />al mercado mexicano?
+      </h2>
+      <p class="representados__text text-center">
+        En <strong>Tu Botella</strong> tenemos el canal de ventas consolidado que tu marca necesita.
+        Red comercial activa, cobertura nacional y más de una década de experiencia
+        en el mercado de empaque en México y LATAM.
+      </p>
+      <div class="representados__benefits representados__benefits--row">
+        <div class="benefit">
+          <div class="benefit__icon"><i class="fa-solid fa-network-wired"></i></div>
+          <div><h4>Red comercial establecida</h4><p>Cartera activa de clientes en toda la república.</p></div>
+        </div>
+        <div class="benefit">
+          <div class="benefit__icon"><i class="fa-solid fa-chart-line"></i></div>
+          <div><h4>Canal de ventas probado</h4><p>Más de una década en el mercado mexicano de empaque.</p></div>
+        </div>
+        <div class="benefit">
+          <div class="benefit__icon"><i class="fa-solid fa-map-location-dot"></i></div>
+          <div><h4>Cobertura nacional</h4><p>Distribución en todo México sin que tengas que estar aquí.</p></div>
+        </div>
+        <div class="benefit">
+          <div class="benefit__icon"><i class="fa-solid fa-handshake-simple"></i></div>
+          <div><h4>Alianza estratégica</h4><p>Relación a largo plazo basada en resultados y confianza.</p></div>
+        </div>
+      </div>
+      <div class="representados__cta-center">
+        <a href={`${b}representados`} class="btn btn--gold">
+          <i class="fa-solid fa-handshake"></i> Quiero ser representado en México
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

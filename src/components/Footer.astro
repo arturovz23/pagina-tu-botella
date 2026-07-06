@@ -1,0 +1,58 @@
+---
+const b = import.meta.env.BASE_URL;
+---
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="footer__brand">
+      <span class="logo-text logo-text--light">Tu<span class="logo-accent">Botella</span></span>
+      <p>Tapas metálicas twist off y rosca para alimentos. Stock en México y entrega rápida a toda la república.</p>
+    </div>
+    <div class="footer__links">
+      <h4>Navegación</h4>
+      <ul>
+        <li><a href={`${b}#nosotros`}>Nosotros</a></li>
+        <li><a href={`${b}#productos`}>Productos</a></li>
+        <li><a href={`${b}#equipo`}>Equipo</a></li>
+        <li><a href={`${b}representados`}>Representados</a></li>
+        <li><a href={`${b}#clientes`}>Clientes</a></li>
+        <li><a href={`${b}#contacto`}>Contacto</a></li>
+      </ul>
+    </div>
+    <div class="footer__links">
+      <h4>Productos</h4>
+      <ul>
+        <li><a href={`${b}#productos`}>Tapas Twist Off</a></li>
+        <li><a href={`${b}#productos`}>Tapas de Rosca</a></li>
+        <li><a href={`${b}#productos`}>Tapas de Aluminio</a></li>
+        <li><a href={`${b}#productos`}>Línea Premium</a></li>
+        <li><a href={`${b}#productos`}>Pedidos a Mayoreo</a></li>
+      </ul>
+    </div>
+    <div class="footer__contact">
+      <h4>Contacto rápido</h4>
+      <p class="footer__zona-label">Zona Norte · Lorien Labastida</p>
+      <a href="https://wa.me/525568028885" target="_blank" class="footer__contact-item">
+        <i class="fa-brands fa-whatsapp"></i> +52 55 6802 8885
+      </a>
+      <a href="mailto:ventas@tubotella.mx" class="footer__contact-item">
+        <i class="fa-solid fa-envelope"></i> ventas@tubotella.mx
+      </a>
+      <p class="footer__zona-label" style="margin-top:10px;">Zona Sur · Lucero Rodríguez</p>
+      <a href="https://wa.me/525610201865" target="_blank" class="footer__contact-item">
+        <i class="fa-brands fa-whatsapp"></i> +52 56 1020 1865
+      </a>
+      <a href="mailto:comercial@tubotella.mx" class="footer__contact-item">
+        <i class="fa-solid fa-envelope"></i> comercial@tubotella.mx
+      </a>
+      <a href="https://tubotella.mx" class="footer__contact-item" style="margin-top:8px;">
+        <i class="fa-solid fa-globe"></i> tubotella.mx
+      </a>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <div class="container">
+      <p>© 2025 Tu Botella. Todos los derechos reservados.</p>
+      <p>Hecho con <i class="fa-solid fa-heart"></i> en México</p>
+    </div>
+  </div>
+</footer>

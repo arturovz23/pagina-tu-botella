@@ -1,0 +1,149 @@
+---
+---
+<section class="section contacto" id="contacto">
+  <div class="container contacto__inner">
+    <div class="contacto__info">
+      <p class="section__tag">¿Listo para empezar?</p>
+      <h2 class="section__title">Solicita tu<br />cotización</h2>
+      <p class="contacto__text">
+        Escríbenos con el tipo de tapa que necesitas, las medidas y
+        el volumen aproximado. Te respondemos con precio y disponibilidad
+        en menos de 24 horas.
+      </p>
+      <div class="contacto__cta-box">
+        <a href="https://wa.me/525610201865?text=Hola%2C%20quiero%20solicitar%20una%20cotizaci%C3%B3n%20de%20tapas%20met%C3%A1licas." target="_blank" class="btn btn--whatsapp">
+          <i class="fa-brands fa-whatsapp"></i> WhatsApp directo
+        </a>
+        <a href="mailto:ventas@tubotella.mx?subject=Solicitud%20de%20cotizaci%C3%B3n" class="btn btn--ghost btn--ghost-dark">
+          <i class="fa-solid fa-envelope"></i> Enviar correo
+        </a>
+      </div>
+      <div class="contacto__datos">
+        <div class="dato">
+          <div class="dato__icon"><i class="fa-solid fa-location-dot"></i></div>
+          <div>
+            <strong>Oficinas</strong>
+            <span>Ciudad de México, México</span>
+          </div>
+        </div>
+        <div class="dato dato--zona">
+          <div class="dato__icon"><i class="fa-solid fa-map"></i></div>
+          <div>
+            <strong>Zona Norte — Lorien Labastida</strong>
+            <a href="https://wa.me/525568028885" target="_blank">+52 55 6802 8885</a>
+            <a href="mailto:ventas@tubotella.mx">ventas@tubotella.mx</a>
+          </div>
+        </div>
+        <div class="dato dato--zona">
+          <div class="dato__icon"><i class="fa-solid fa-map"></i></div>
+          <div>
+            <strong>Zona Sur — Lucero Rodríguez</strong>
+            <a href="https://wa.me/525610201865" target="_blank">+52 56 1020 1865</a>
+            <a href="mailto:comercial@tubotella.mx">comercial@tubotella.mx</a>
+          </div>
+        </div>
+      </div>
+      <div class="contacto__social">
+        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+      </div>
+    </div>
+
+    <div class="contacto__form-wrap">
+      <form class="contacto-form" id="contactoForm" action="https://formspree.io/f/xqevjbyz" method="POST">
+        <h3 class="form-card__title" style="margin-bottom:6px;">Solicitar cotización</h3>
+        <p class="form-card__subtitle">Completa el formulario y te respondemos en menos de 24&nbsp;h.</p>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="c-nombre">Nombre *</label>
+            <input type="text" id="c-nombre" name="nombre" placeholder="Tu nombre" required />
+          </div>
+          <div class="form-group">
+            <label for="c-empresa">Empresa</label>
+            <input type="text" id="c-empresa" name="empresa" placeholder="Tu empresa" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="c-email">Correo electrónico *</label>
+          <input type="email" id="c-email" name="email" placeholder="correo@empresa.com" required />
+        </div>
+        <div class="form-group">
+          <label for="c-telefono">Teléfono / WhatsApp</label>
+          <input type="tel" id="c-telefono" name="telefono" placeholder="+52 55 0000 0000" />
+        </div>
+        <div class="form-group">
+          <label for="c-producto">¿Qué tapa necesitas? *</label>
+          <select id="c-producto" name="producto" required>
+            <option value="" disabled selected>Tipo de tapa</option>
+            <option value="twist-off">Twist Off</option>
+            <option value="rosca">Rosca</option>
+            <option value="aluminio">Aluminio</option>
+            <option value="otro">Otro / No sé aún</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="c-mensaje">¿Cuántas piezas necesitas y para qué producto? *</label>
+          <textarea id="c-mensaje" name="mensaje" rows="3" placeholder="Ej: 5,000 tapas twist off para miel, frasco de 250ml..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn--primary btn--full">
+          <i class="fa-solid fa-paper-plane"></i> Enviar solicitud de cotización
+        </button>
+        <p class="form-card__privacy" style="margin-top:12px;">
+          <i class="fa-solid fa-lock"></i> Tu información es confidencial.
+        </p>
+      </form>
+      <div class="form-success" id="contactoSuccess" style="display:none;">
+        <i class="fa-solid fa-circle-check"></i>
+        <h4>¡Solicitud enviada!</h4>
+        <p>Gracias por escribirnos. Te contactaremos en menos de 24 horas con tu cotización.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const contactoForm    = document.getElementById('contactoForm') as HTMLFormElement;
+  const contactoSuccess = document.getElementById('contactoSuccess');
+
+  if (contactoForm) {
+    contactoForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const inputs = contactoForm.querySelectorAll<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>('[required]');
+      let valid = true;
+      inputs.forEach(input => {
+        if (!input.value.trim()) {
+          valid = false;
+          input.style.borderColor = '#e05c5c';
+          input.addEventListener('input', () => { input.style.borderColor = ''; }, { once: true });
+        }
+      });
+      if (!valid) return;
+
+      const btn = contactoForm.querySelector('button[type="submit"]') as HTMLButtonElement;
+      btn.disabled = true;
+      btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Enviando…';
+
+      try {
+        const res = await fetch(contactoForm.action, {
+          method: 'POST',
+          body: new FormData(contactoForm),
+          headers: { 'Accept': 'application/json' },
+        });
+        if (res.ok) {
+          contactoForm.style.display = 'none';
+          if (contactoSuccess) contactoSuccess.style.display = 'block';
+          contactoSuccess?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } else {
+          btn.disabled = false;
+          btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Enviar solicitud de cotización';
+          alert('Hubo un error al enviar. Por favor intenta de nuevo.');
+        }
+      } catch {
+        btn.disabled = false;
+        btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Enviar solicitud de cotización';
+        alert('Error de conexión. Por favor intenta de nuevo.');
+      }
+    });
+  }
+</script>

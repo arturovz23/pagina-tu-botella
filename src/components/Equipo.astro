@@ -1,0 +1,30 @@
+---
+const b = import.meta.env.BASE_URL;
+
+const equipo = [
+  { foto: 'robertha tu botella.jpeg', nombre: 'Roberta França Pacheco',    rol: 'Director General',   quote: '"La tapa correcta marca la diferencia en calidad y presentación."' },
+  { foto: 'lucero tubotella.jpg',     nombre: 'Lucero Rodríguez González', rol: 'Ventas Zona Sur',    quote: '"Cada tapa es el primer contacto de tu producto con el cliente."' },
+  { foto: 'lorien labastida.jpg',     nombre: 'Lorien Labastida',          rol: 'Ventas Zona Norte',  quote: '"Nos importa que tu negocio crezca, no solo vender."' },
+  { foto: 'sarah tubotella.jpg',      nombre: 'Sarah Torres',              rol: 'Finanzas',           quote: '"Somos el puente entre los mejores fabricantes del mundo y tu empresa."' },
+  { foto: 'victoria mendez.jpeg',     nombre: 'Victoria Mendez',           rol: 'Importaciones',      quote: '"Hacemos que la logística sea lo más sencillo posible para ti."' },
+];
+---
+<section class="section equipo" id="equipo">
+  <div class="container">
+    <p class="section__tag text-center">Las personas detrás</p>
+    <h2 class="section__title text-center">Nuestro equipo</h2>
+    <p class="section__subtitle text-center">
+      Somos un equipo comprometido con ayudarte a encontrar la solución de empaque perfecta para tu producto.
+    </p>
+    <div class="equipo__grid">
+      {equipo.map(p => (
+        <div class="equipo-card">
+          <img src={`${b}img/${p.foto}`} alt={`Foto ${p.nombre}`} class="equipo-card__photo" />
+          <h3 class="equipo-card__name">{p.nombre}</h3>
+          <span class="equipo-card__role">{p.rol}</span>
+          <p class="equipo-card__quote">{p.quote}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
