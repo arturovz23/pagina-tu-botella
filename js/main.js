@@ -173,7 +173,7 @@ const contactoForm    = document.getElementById('contactoForm');
 const contactoSuccess = document.getElementById('contactoSuccess');
 
 if (contactoForm) {
-  contactoForm.addEventListener('submit', function (e) {
+  contactoForm.addEventListener('submit', async function (e) {
     e.preventDefault();
 
     const inputs = contactoForm.querySelectorAll('[required]');
@@ -195,11 +195,27 @@ if (contactoForm) {
     btn.disabled = true;
     btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Enviando…';
 
-    setTimeout(() => {
-      contactoForm.style.display    = 'none';
-      contactoSuccess.style.display = 'block';
-      contactoSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }, 1400);
+    try {
+      const response = await fetch(contactoForm.action, {
+        method: 'POST',
+        body: new FormData(contactoForm),
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        contactoForm.style.display    = 'none';
+        contactoSuccess.style.display = 'block';
+        contactoSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else {
+        btn.disabled = false;
+        btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Enviar solicitud de cotización';
+        alert('Hubo un error al enviar. Por favor intenta de nuevo.');
+      }
+    } catch (err) {
+      btn.disabled = false;
+      btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Enviar solicitud de cotización';
+      alert('Error de conexión. Por favor intenta de nuevo.');
+    }
   });
 }
 
@@ -271,6 +287,23 @@ if (contactoForm) {
   buildDots();
   goTo(0);
 })();
+
+// ── FAQ Acordeón ─────────────────────────────────────────────
+document.querySelectorAll('.faq__question').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const isOpen = btn.getAttribute('aria-expanded') === 'true';
+    // Cierra todos
+    document.querySelectorAll('.faq__question').forEach(b => {
+      b.setAttribute('aria-expanded', 'false');
+      b.nextElementSibling.classList.remove('open');
+    });
+    // Abre el clickeado si estaba cerrado
+    if (!isOpen) {
+      btn.setAttribute('aria-expanded', 'true');
+      btn.nextElementSibling.classList.add('open');
+    }
+  });
+});
 
 // ── Smooth scroll polyfill for older Safari ──────────────────
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
