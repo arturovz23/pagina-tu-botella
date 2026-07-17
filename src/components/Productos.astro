@@ -1,108 +1,65 @@
 ---
 const b = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL.slice(0, -1) : import.meta.env.BASE_URL;
 
-const productos = [
-  { img: 'TAPA TWIST OFF.png',           alt: 'Tapa Twist Off',            nombre: 'Twist Off',                  desc: 'Tapa de hojalata para cierre hermético al vacío. Compatible con pasteurización y esterilización. Múltiples diámetros con botón de seguridad.' },
-  { img: 'TAPA BRP.png',                  alt: 'Tapa BRP',                   nombre: 'Tapa BRP',                   desc: 'Cierre de alta gama con barrera superior al oxígeno. Ideal para segmentos premium como alimentos para bebés. Apta para pasteurización y esterilización.' },
-  { img: 'TAPARROSCA DE HOJALATA.png',    alt: 'Taparrosca de Hojalata',     nombre: 'Taparrosca de Hojalata',     desc: 'Cierre continuo en espiral de estilo tradicional. Amplia gama de diámetros y acabados. Compatible con envases al vacío y no al vacío.' },
-  { img: 'TAPARROSCA DE ALUMINIO.png',    alt: 'Taparrosca de Aluminio',     nombre: 'Taparrosca de Aluminio',     desc: 'Cierre continuo ligero y sustentable. Apariencia premium y alta reciclabilidad. Personalizable con impresión multicolor y relieve.' },
-  { img: 'TAPA CLASSIC CANNER.png',       alt: 'Classic Canner',             nombre: 'Classic Canner',             desc: 'Combina el cierre Twist con el estilo clásico de la taparrosca. Ideal para conservas caseras. Disponible en diámetros 63, 66 y 70 mm.' },
-  { img: 'TAPA CIERRE SKO.png',           alt: 'Tapa SKO',                   nombre: 'SKO',                        desc: 'Tapa desechable de hojalata para envasado en caliente y frío. Cierre hermético con guarnición de caucho. Para frutas, verduras, carnes y salsas.' },
-  { img: 'TAPA AP 45.png',                alt: 'Tapón de Rosca de Aluminio', nombre: 'Tapón de Rosca Aluminio',    desc: 'Cierre de aluminio easy grip para envasado en caliente y frío de verduras, mariscos y alimentos en aceite, sal y vinagre.' },
-  { img: 'TAPARROSCA G1.png',             alt: 'Taparrosca G1',              nombre: 'Taparrosca G1',              desc: 'Medida especial de cierre continuo. Popular para comidas, velas y cuidado personal. Disponible en acabados bronce, dorado y peltre antiguo.' },
-  { img: 'LID & BAND.png',               alt: 'Lid & Band',                 nombre: 'Lid & Band',                 desc: 'Cierre de dos piezas con más de 100 años de uso en conservas caseras. Botón de seguridad para verificar el vacío. La band es reutilizable infinitas veces.' },
-  { img: 'SUPER C.png',                   alt: 'Super C',                    nombre: 'Super C',                    desc: 'Tapa de aluminio para cerveza y refrescos. Compatible con botellas de aluminio y vidrio. Sin oxidación, libre de PVC y BPA. Tamaño estándar 27 mm.' },
+const catalogos = [
+  {
+    id: 'alimentos',
+    tag: 'Hojalata · Aluminio · Twist Off',
+    titulo: 'Alimentos y Bebidas',
+    desc: 'Catálogo completo de tapas metálicas para la industria alimentaria: conservas, salsas, miel, bebidas y más. Todos los diámetros, acabados y especificaciones técnicas.',
+    icono: 'fa-solid fa-utensils',
+    color: 'verde',
+    url: 'https://www.tecnocapclosures.com/wp-content/uploads/alimentos-y-bebidas-2024.pdf',
+  },
+  {
+    id: 'health',
+    tag: 'Aluminio · Premium · Personal Care',
+    titulo: 'Health & Beauty',
+    desc: 'Soluciones de cierre para cosméticos, suplementos, farmacéuticos y cuidado personal. Acabados premium con opciones de personalización y certificaciones internacionales.',
+    icono: 'fa-solid fa-heart-pulse',
+    color: 'dorado',
+    url: 'https://www.tecnocapclosures.com/wp-content/uploads/healthbeauty_spagna-2024.pdf',
+  },
 ];
 ---
-<section class="section productos" id="productos">
+
+<section class="section catalogos" id="productos">
   <div class="container">
-    <p class="section__tag text-center">Catálogo</p>
-    <h2 class="section__title text-center">Nuestras tapas</h2>
+    <p class="section__tag text-center">Catálogo de productos</p>
+    <h2 class="section__title text-center">Explora nuestras líneas</h2>
     <p class="section__subtitle text-center">
-      Línea completa de tapas metálicas de hojalata y aluminio para la industria alimentaria y de bebidas. Disponibles con stock en México.
+      Descarga o consulta nuestros catálogos completos con especificaciones técnicas,
+      diámetros, acabados y compatibilidades para cada industria.
     </p>
-    <div class="productos__carousel" id="productosCarousel">
-      <button class="carousel__btn carousel__btn--prev" id="carouselPrev" aria-label="Anterior">
-        <i class="fa-solid fa-chevron-left"></i>
-      </button>
-      <div class="carousel__viewport">
-        <div class="carousel__track" id="carouselTrack">
-          {productos.map(p => (
-            <div class="producto-card">
-              <div class="producto-card__img-wrap">
-                <img src={`${b}/img/${p.img}`} alt={p.alt} />
-              </div>
-              <div class="producto-card__body">
-                <h3>{p.nombre}</h3>
-                <p>{p.desc}</p>
-                <a href="#contacto" class="link-arrow">Solicitar cotización <i class="fa-solid fa-arrow-right"></i></a>
-              </div>
-            </div>
-          ))}
+
+    <div class="catalogos__grid">
+      {catalogos.map(c => (
+        <div class={`catalogo-card catalogo-card--${c.color}`}>
+          <div class="catalogo-card__icon">
+            <i class={c.icono}></i>
+          </div>
+          <div class="catalogo-card__body">
+            <span class="catalogo-card__tag">{c.tag}</span>
+            <h3 class="catalogo-card__titulo">{c.titulo}</h3>
+            <p class="catalogo-card__desc">{c.desc}</p>
+          </div>
+          <div class="catalogo-card__actions">
+            <a href={c.url} target="_blank" rel="noopener noreferrer" class="btn btn--primary catalogo-card__btn">
+              <i class="fa-solid fa-eye"></i> Ver catálogo
+            </a>
+            <a href={c.url} download target="_blank" rel="noopener noreferrer" class="btn btn--ghost catalogo-card__btn--dl">
+              <i class="fa-solid fa-download"></i> Descargar PDF
+            </a>
+          </div>
         </div>
-      </div>
-      <button class="carousel__btn carousel__btn--next" id="carouselNext" aria-label="Siguiente">
-        <i class="fa-solid fa-chevron-right"></i>
-      </button>
+      ))}
     </div>
-    <div class="carousel__dots" id="carouselDots"></div>
+
+    <div class="catalogos__cta">
+      <p>¿Buscas algo específico o necesitas un producto a la medida?</p>
+      <a href={`${b}#contacto`} class="btn btn--ghost btn--ghost-dark">
+        <i class="fa-solid fa-comments"></i> Habla con un asesor
+      </a>
+    </div>
   </div>
 </section>
-
-<script>
-  (function () {
-    const track   = document.getElementById('carouselTrack');
-    const dotsEl  = document.getElementById('carouselDots');
-    const btnPrev = document.getElementById('carouselPrev') as HTMLButtonElement;
-    const btnNext = document.getElementById('carouselNext') as HTMLButtonElement;
-    if (!track || !dotsEl || !btnPrev || !btnNext) return;
-
-    const cards = Array.from(track.children) as HTMLElement[];
-    let current = 0;
-
-    function visibleCount() {
-      const w = window.innerWidth;
-      if (w < 600) return 1;
-      if (w < 960) return 2;
-      return 3;
-    }
-    function maxIndex() { return Math.max(0, cards.length - visibleCount()); }
-
-    function buildDots() {
-      dotsEl.innerHTML = '';
-      for (let i = 0; i <= maxIndex(); i++) {
-        const d = document.createElement('button');
-        d.className = 'carousel__dot' + (i === current ? ' active' : '');
-        d.setAttribute('aria-label', `Ir a ${i + 1}`);
-        d.addEventListener('click', () => goTo(i));
-        dotsEl.appendChild(d);
-      }
-    }
-
-    function goTo(index: number) {
-      current = Math.max(0, Math.min(index, maxIndex()));
-      const cardWidth = cards[0].getBoundingClientRect().width;
-      const gap = 24;
-      (track as HTMLElement).style.transform = `translateX(-${current * (cardWidth + gap)}px)`;
-      dotsEl.querySelectorAll('.carousel__dot').forEach((d, i) => {
-        d.classList.toggle('active', i === current);
-      });
-      btnPrev.disabled = current === 0;
-      btnNext.disabled = current >= maxIndex();
-    }
-
-    btnPrev.addEventListener('click', () => goTo(current - 1));
-    btnNext.addEventListener('click', () => goTo(current + 1));
-    window.addEventListener('resize', () => { buildDots(); goTo(Math.min(current, maxIndex())); });
-
-    let touchStartX = 0;
-    track.addEventListener('touchstart', e => { touchStartX = (e as TouchEvent).touches[0].clientX; }, { passive: true });
-    track.addEventListener('touchend', e => {
-      const diff = touchStartX - (e as TouchEvent).changedTouches[0].clientX;
-      if (Math.abs(diff) > 40) goTo(diff > 0 ? current + 1 : current - 1);
-    });
-
-    buildDots();
-    goTo(0);
-  })();
-</script>
